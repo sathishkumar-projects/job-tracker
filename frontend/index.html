@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Job Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div id="login-page" class="page">
+        <div class="container">
+            <h1>🚀 AI Job Tracker</h1>
+            <p class="subtitle">Track Smarter, Apply Better</p>
+
+            <div class="card">
+                <h2>Login</h2>
+                <input type="text" id="login-username" placeholder="Username" />
+                <input type="password" id="login-password" placeholder="Password" />
+                <button onclick="login()">Login</button>
+                <p>Don't have an account? <a href="#" onclick="showPage('register-page')">Register</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Page -->
+    <div id="register-page" class="page hidden">
+        <div class="container">
+            <h1>🚀 AI Job Tracker</h1>
+            <p class="subtitle">Track Smarter, Apply Better</p>
+
+            <div class="card">
+                <h2>Register</h2>
+                <input type="text" id="reg-username" placeholder="Username" />
+                <input type="email" id="reg-email" placeholder="Email" />
+                <input type="password" id="reg-password" placeholder="Password" />
+                <button onclick="register()">Register</button>
+                <p>Already have an account? <a href="#" onclick="showPage('login-page')">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard-page" class="page hidden">
+        <div class="navbar">
+            <h2>🚀 AI Job Tracker</h2>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <div class="container">
+            <!-- Add Job Form -->
+            <div class="card">
+                <h2>Add New Job</h2>
+                <input type="text" id="company-name" placeholder="Company Name" />
+                <input type="text" id="job-role" placeholder="Job Role" />
+                <select id="job-status">
+                    <option value="applied">Applied</option>
+                    <option value="interview">Interview</option>
+                    <option value="offered">Offered</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <input type="text" id="job-notes" placeholder="Notes (optional)" />
+                <button onclick="addJob()">Add Job</button>
+            </div>
+
+            <!-- AI Suggest -->
+            <div class="card">
+                <h2>🤖 AI Resume Suggestions</h2>
+                <textarea id="job-description" placeholder="Paste job description here..."></textarea>
+                <button onclick="getAISuggestions()">Get AI Suggestions</button>
+                <div id="ai-result"></div>
+            </div>
+
+            <!-- Jobs List -->
+            <div class="card">
+                <h2>My Job Applications</h2>
+                <div id="jobs-list">Loading...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
